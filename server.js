@@ -104,17 +104,21 @@ app.post("/api/logout", (req, res) => {
   req.session.destroy(() => res.json({ ok: true }));
 });
 
-const server = app.listen(PORT, () => {
-  console.log(`WAHrden SSO login page running at http://localhost:${PORT}`);
-  console.log(`Redirect target: ${WAH4C_URL}`);
-});
+if (!process.env.VERCEL) {
+  const server = app.listen(PORT, () => {
+    console.log(`WAHrden SSO login page running at http://localhost:${PORT}`);
+    console.log(`Redirect target: ${WAH4C_URL}`);
+  });
 
-server.on("error", (error) => {
-  if (error.code === "EADDRINUSE") {
-    console.error(
-      `Port ${PORT} is already in use. Start on another port, e.g. PORT=4100 npm start`,
-    );
-    process.exit(1);
-  }
-  throw error;
-});
+  server.on("error", (error) => {
+    if (error.code === "EADDRINUSE") {
+      console.error(
+        `Port ${PORT} is already in use. Start on another port, e.g. PORT=4100 npm start`,
+      );
+      process.exit(1);
+    }
+    throw error;
+  });
+}
+
+export default app;
