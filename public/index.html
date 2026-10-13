@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>WAHrden &middot; Single Sign-On</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card" aria-labelledby="login-title">
+        <header class="brand">
+          <div class="brand-mark" aria-hidden="true">W</div>
+          <div>
+            <h1 id="login-title">WAHrden</h1>
+            <p class="brand-sub">Single Sign-On</p>
+          </div>
+        </header>
+
+        <p class="intro">
+          Sign in with your WAH4C account to continue to the clinical
+          workspace.
+        </p>
+
+        <div
+          id="notification"
+          class="notification"
+          role="alert"
+          aria-live="assertive"
+          hidden
+        ></div>
+
+        <form id="login-form" novalidate>
+          <label class="field">
+            <span>Email address</span>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              inputmode="email"
+              autocomplete="username"
+              placeholder="dr.elena.santos@wah4c.org"
+              required
+              autofocus
+            />
+          </label>
+
+          <label class="field">
+            <span>Password</span>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Enter your password"
+              required
+            />
+          </label>
+
+          <button id="submit" class="submit" type="submit">
+            <span class="submit-label">Sign in</span>
+            <span class="spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <p class="footnote">
+          Wrong email addresses are rejected as
+          <strong>Invalid Username</strong> and do not count towards lockout.
+          Accounts lock after more than three failed password attempts.
+        </p>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "wahrden-login-page",
+  "version": "1.0.0",
+  "description": "SSO login page for the WAH4C application, backed by SQLite.",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "reset-db": "node src/seed.js --force"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}
